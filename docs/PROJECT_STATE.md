@@ -212,8 +212,14 @@ Both photos: real, freely-licensed (Unsplash — free for commercial use, no att
 - **Advertisement's SVG graphic replaced with a real photo too** (a LinkedIn Ads Campaign Manager dashboard screenshot, no face) — an abstract SVG stretched into the new taller box would have looked worse, not better, so for consistency both service pages now use real photography like Automation already did. Deleted the now-unused `advertisement-graphic.tsx`.
 - Verified via direct DB queries (not re-asserted) for the migration status, and live HTML checks confirming the merged hero (no orphan "The problem this solves" heading, paragraphs present), the new photo wired in, and the `aspect-[4/5]` wrapper present on both Home and the service pages. Clean `npx tsc --noEmit` and `npm run build`, 23 routes, full route sweep 200.
 
+## Fifth correction round (2026-09-27, same day)
+- **0007 confirmed applied** — queried `inquiries` directly, `phone` column now exists. Lead form submissions are no longer failing.
+- **Hero image aspect ratio fixed** (Home, Automation, Advertisement): the `aspect-[4/5]` box from the previous round read as too tall in real use — changed to `aspect-[4/3]` in both `app/(marketing)/page.tsx` and `components/content/service-page-layout.tsx`.
+- **Advertisement photo replaced again** — the LinkedIn Campaign Manager screenshot from the last round read poorly (heavy vignette blur, empty "Create account" state, not a real working dashboard). Replaced with a clean analytics/charts dashboard photo (Unsplash, Luke Chesser, free for commercial use, no attribution required, confirmed faceless), visually distinct from the homepage's lighter dashboard photo and Automation's hands-on-laptop photo.
+- Verified via a clean `npx tsc --noEmit` and `npm run build` (23 routes), plus a live dev-server route sweep confirming the new `aspect-[4/3]` class renders on both Home and the service pages and all checked routes return 200.
+
 ## Action needed
-Run, in order: **0007** (inquiries.phone — blocking, form submissions are silently failing without it), **0008** (industry descriptions, if not already run), **0009** (service story copy, if not already run). Same SQL Editor as before.
+Nothing blocking right now — 0007/0008/0009 are all confirmed applied.
 
 ## Deployment + DNS cutover — not yet started, needs you
 This needs your Vercel account and domain registrar access — I can't perform it. Plan per `docs/15-qa-and-launch.md`:

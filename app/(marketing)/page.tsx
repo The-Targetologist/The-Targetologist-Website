@@ -125,7 +125,7 @@ export default async function Home() {
               </ButtonLink>
             </div>
           </div>
-          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--color-border)] lg:block">
+          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--color-border)] lg:block">
             <Image
               src="/hero-photo.jpg"
               alt="An analytics dashboard showing lead and traffic trends"
