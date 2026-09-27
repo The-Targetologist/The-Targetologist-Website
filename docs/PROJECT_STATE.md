@@ -225,8 +225,13 @@ Both photos: real, freely-licensed (Unsplash — free for commercial use, no att
 - **"No hacks" callout restyled.** It was an orange-bordered, orange-filled box (`bg-accent-soft`/`border-accent`) — reads as a warning/alert banner, not a positive statement. Changed to the same neutral `bg-muted`/`border-border` treatment used elsewhere on the page.
 - Verified via clean `npx tsc --noEmit` and `npm run build` (23 routes), plus a live dev-server sweep confirming `aspect-square` on all three hero images, the About page's new two-column grid class, the restyled callout (`accent-soft` no longer present in the rendered HTML), and all checked routes still 200.
 
+## Seventh correction round (2026-09-27, same day)
+- **Advertisement photo — re-verified, not a code issue.** Business owner reported still seeing the old LinkedIn Campaign Manager screenshot after the previous round. Checked `sha256sum` of `public/advertisement-photo.jpg` on disk against the new "Advertising Today" chart photo — identical hash — and confirmed the local dev server serves that exact file byte-for-byte. The correct photo has been committed and pushed since commit `9b61030`. What the business owner saw was very likely a browser cache or a not-yet-refreshed CDN/deployment cache, not a leftover old file in the repo — flagged back to them rather than re-changing a file that was already correct.
+- **About hero rebalanced.** The two-column split from the last round fixed the empty-right-side problem but created a new one: the left column (eyebrow + short H1) was much shorter than the right column (two paragraphs + callout), leaving a visible empty gap under the heading. Fixed by giving the left column a full hero treatment matching the homepage's own hero shape — eyebrow, larger heading (`text-6xl`, was `text-5xl`), a one-line value prop, and a "Book a Strategy Call" button (`getSiteSettings()` now fetched on this page) — and switched the grid to `items-center` so the two columns balance visually instead of top-aligning.
+- Verified via clean `npx tsc --noEmit` and `npm run build` (23 routes), a live dev-server check confirming the CTA renders on `/about`, and a `sha256sum` comparison proving the served advertisement photo is identical to the committed file.
+
 ## Action needed
-Nothing blocking right now — 0007/0008/0009 are all confirmed applied.
+Nothing blocking right now — 0007/0008/0009 are all confirmed applied. If the Advertisement page still shows the old photo after a hard refresh, check the Vercel dashboard for the latest deployment's commit hash (should be at or past `9b61030`) — the file itself is confirmed correct in the repo.
 
 ## Deployment + DNS cutover — not yet started, needs you
 This needs your Vercel account and domain registrar access — I can't perform it. Plan per `docs/15-qa-and-launch.md`:

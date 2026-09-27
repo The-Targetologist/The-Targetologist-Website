@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { DotGridBackground } from "@/components/layout/dot-grid-background";
+import { ButtonLink } from "@/components/ui/button";
 import { ServiceCard } from "@/components/content/service-card";
 import { CTASection } from "@/components/content/cta-section";
 import { getHomeServices } from "@/lib/queries/services";
+import { getSiteSettings } from "@/lib/queries/site-settings";
 import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600;
@@ -55,22 +57,34 @@ const RECENT_WORK = [
 // is confirmed for public use yet (business owner's call, 2026-09-23).
 // Copy adapted from the real live About page, not fabricated.
 export default async function AboutPage() {
-  const services = await getHomeServices();
+  const [services, settings] = await Promise.all([getHomeServices(), getSiteSettings()]);
 
   return (
     <main id="main-content" className="flex-1">
       {/* No hero photo on this page (business owner's call — no founder photo
-          confirmed yet), so the text takes the full container width via a
-          two-column split instead of a single narrow max-w column, which
-          otherwise leaves the right half of the row empty on large screens. */}
+          confirmed yet). A heading-left/body-right split left the left
+          column mostly empty below a short H1, so instead the left column
+          carries a full hero treatment (eyebrow, heading, one-liner, CTA —
+          same shape as the homepage hero) to balance the taller right
+          column, rather than a single narrow max-w-2xl block that left the
+          whole right half of the row empty. */}
       <Section className="relative overflow-hidden pt-20">
         <DotGridBackground />
-        <Container className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
             <p className="text-sm font-medium uppercase tracking-wide text-[var(--color-accent)]">
               About
             </p>
-            <h1 className="mt-4 text-4xl md:text-5xl">Who We Are</h1>
+            <h1 className="mt-4 text-4xl md:text-6xl">Who We Are</h1>
+            <p className="mt-6 max-w-md text-lg text-[var(--color-muted-foreground)]">
+              A growth partner built around two disciplines working as one system: Advertisement
+              and Automation.
+            </p>
+            <div className="mt-8">
+              <ButtonLink href={settings.calendlyUrl} target="_blank" rel="noopener noreferrer" size="lg">
+                Book a Strategy Call
+              </ButtonLink>
+            </div>
           </div>
           <div>
             <p className="text-lg text-[var(--color-muted-foreground)]">
