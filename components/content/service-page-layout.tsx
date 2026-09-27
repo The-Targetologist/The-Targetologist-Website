@@ -79,7 +79,7 @@ export async function ServicePageLayout({
               </div>
             )}
           </div>
-          <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--color-border)] lg:block">
+          <div className="relative hidden aspect-square overflow-hidden rounded-2xl border border-[var(--color-border)] lg:block">
             {graphic}
           </div>
         </Container>

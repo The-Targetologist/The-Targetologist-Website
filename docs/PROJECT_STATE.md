@@ -218,6 +218,13 @@ Both photos: real, freely-licensed (Unsplash — free for commercial use, no att
 - **Advertisement photo replaced again** — the LinkedIn Campaign Manager screenshot from the last round read poorly (heavy vignette blur, empty "Create account" state, not a real working dashboard). Replaced with a clean analytics/charts dashboard photo (Unsplash, Luke Chesser, free for commercial use, no attribution required, confirmed faceless), visually distinct from the homepage's lighter dashboard photo and Automation's hands-on-laptop photo.
 - Verified via a clean `npx tsc --noEmit` and `npm run build` (23 routes), plus a live dev-server route sweep confirming the new `aspect-[4/3]` class renders on both Home and the service pages and all checked routes return 200.
 
+## Sixth correction round (2026-09-27, same day)
+- **Aspect ratio changed to square** (`aspect-[4/3]` → `aspect-square`) on Home, Automation, and Advertisement hero images, per business owner request.
+- **Automation and Advertisement photos replaced again.** Automation is now a kanban-style workflow board (TO DO / PROCESSING / TO CHECK / DONE) — reads as an actual automated pipeline rather than a generic "hands on a laptop" shot. Advertisement is now a monitor showing an upward-trending "Advertising Today" bar chart — literally on-theme, not a screenshot of an empty ad-platform state. Both Unsplash/Pexels, free for commercial use, no attribution required, verified faceless and free of any real personal information or third-party brand logos before downloading.
+- **About page hero restructured.** There's no hero photo on this page (no founder photo confirmed yet), so the old single `max-w-2xl` text column left the entire right half of a 1280px container empty on large screens. Split into a two-column grid (`0.9fr` heading / `1.1fr` body) so the row uses the full width without needing an image.
+- **"No hacks" callout restyled.** It was an orange-bordered, orange-filled box (`bg-accent-soft`/`border-accent`) — reads as a warning/alert banner, not a positive statement. Changed to the same neutral `bg-muted`/`border-border` treatment used elsewhere on the page.
+- Verified via clean `npx tsc --noEmit` and `npm run build` (23 routes), plus a live dev-server sweep confirming `aspect-square` on all three hero images, the About page's new two-column grid class, the restyled callout (`accent-soft` no longer present in the rendered HTML), and all checked routes still 200.
+
 ## Action needed
 Nothing blocking right now — 0007/0008/0009 are all confirmed applied.
 

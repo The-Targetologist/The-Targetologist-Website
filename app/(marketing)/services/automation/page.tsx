@@ -45,7 +45,7 @@ export default async function AutomationServicePage() {
         graphic={
           <Image
             src="/automation-photo.jpg"
-            alt="Hands typing on a laptop, setting up an automated workflow"
+            alt="A kanban-style workflow board tracking tasks through automated stages"
             fill
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover"

@@ -45,7 +45,7 @@ export default async function AdvertisementServicePage() {
         graphic={
           <Image
             src="/advertisement-photo.jpg"
-            alt="A LinkedIn ads campaign manager dashboard on a laptop screen"
+            alt="A desktop monitor displaying an advertising performance chart trending upward"
             fill
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover"

@@ -59,27 +59,36 @@ export default async function AboutPage() {
 
   return (
     <main id="main-content" className="flex-1">
+      {/* No hero photo on this page (business owner's call — no founder photo
+          confirmed yet), so the text takes the full container width via a
+          two-column split instead of a single narrow max-w column, which
+          otherwise leaves the right half of the row empty on large screens. */}
       <Section className="relative overflow-hidden pt-20">
         <DotGridBackground />
-        <Container>
-          <p className="text-sm font-medium uppercase tracking-wide text-[var(--color-accent)]">
-            About
-          </p>
-          <h1 className="mt-4 max-w-2xl text-4xl md:text-5xl">Who We Are</h1>
-          <p className="mt-6 max-w-2xl text-lg text-[var(--color-muted-foreground)]">
-            The Targetologist is a growth partner for B2B service businesses. We pair targeted
-            advertisement with automation to turn scattered lead generation and manual follow-ups
-            into a structured system, not a grab-bag of tactics.
-          </p>
-          <p className="mt-4 max-w-2xl text-[var(--color-muted-foreground)]">
-            Most agencies sell tactics: a few ads here, a CRM cleanup there. We build systems
-            instead. Advertisement and Automation work together as one partnership, not two
-            disconnected vendors.
-          </p>
-          <div className="mt-6 max-w-2xl rounded-xl border border-[var(--color-accent)]/30 bg-[var(--color-accent-soft)] p-5">
-            <p className="text-lg font-medium">
-              No hacks. No random outreach. Just systems that convert conversations into revenue.
+        <Container className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-wide text-[var(--color-accent)]">
+              About
             </p>
+            <h1 className="mt-4 text-4xl md:text-5xl">Who We Are</h1>
+          </div>
+          <div>
+            <p className="text-lg text-[var(--color-muted-foreground)]">
+              The Targetologist is a growth partner for B2B service businesses. We pair targeted
+              advertisement with automation to turn scattered lead generation and manual
+              follow-ups into a structured system, not a grab-bag of tactics.
+            </p>
+            <p className="mt-4 text-[var(--color-muted-foreground)]">
+              Most agencies sell tactics: a few ads here, a CRM cleanup there. We build systems
+              instead. Advertisement and Automation work together as one partnership, not two
+              disconnected vendors.
+            </p>
+            <div className="mt-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-muted)] p-5">
+              <p className="text-lg font-medium">
+                No hacks. No random outreach. Just systems that convert conversations into
+                revenue.
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
