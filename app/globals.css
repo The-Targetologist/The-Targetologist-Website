@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/*
+ * Palette adopted from the reference design (landing-page-beta-vert-23,
+ * 2026-09-27) at the business owner's direction — colors extracted
+ * directly from its compiled CSS custom properties (--color-brand,
+ * --color-ink, --color-paper, etc.), not eyeballed from a screenshot.
+ * No longer provisional. See docs/PROJECT_STATE.md.
+ */
+:root {
+  --color-background: #ffffff;
+  --color-background-alt: #f8f8f7;
+  --color-foreground: #020202;
+  --color-primary: #0f172a;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #e4572e;
+  --color-accent-hover: #c8461f;
+  /* Soft tinted background (badges, icon chips) — reference's --color-brand-soft. */
+  --color-accent-soft: #fdf0eb;
+  --color-accent-foreground: #ffffff;
+  --color-muted: #f8f8f7;
+  --color-muted-foreground: #667085;
+  --color-border: #eaecf0;
+  --color-border-strong: #d4d4d4;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-background-alt: var(--color-background-alt);
+  --color-foreground: var(--color-foreground);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-sora);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
